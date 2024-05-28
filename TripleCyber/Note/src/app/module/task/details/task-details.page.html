@@ -1,0 +1,33 @@
+
+  <app-header
+	  title="task.singular"
+	  backTo="tabs/tasks"
+    ></app-header>
+<ion-content [fullscreen]="true"> 
+   <app-not-found
+		*ngIf="!isLoading && (!task || !task.id)"
+		[notFoundMessage]="'task.not-found.content-text' | translate"
+		[resetLinkText]="'task.not-found.link-text' | translate"
+		resetLinkRoute="/tabs/tasks"
+  ></app-not-found>
+  <app-task-item
+    *ngIf="task && task.id"
+    [dataSource]="task"
+  ></app-task-item>
+  
+  <ion-row>
+	    <ion-col size="12">
+      <ion-segment [value]="selectedSegment" (ionChange)="segmentChanged($event)">
+        <ion-segment-button *ngFor="let item of segments" [value]="item.id">
+          <ion-label>{{ item.name | translate }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+				
+		 	<ion-col size="12" *ngIf="selectedSegment === 'notes'">	
+			  <app-note-grid [dataSource]="dataSource.notes">			 
+			  </app-note-grid>
+			</ion-col>
+				
+	</ion-row>
+</ion-content>

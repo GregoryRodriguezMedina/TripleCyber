@@ -1,0 +1,25 @@
+
+  <ion-grid class="grid">
+	<ion-row class="grid-heading">
+		<ion-col>{{ "note.id.label" | translate }}</ion-col>
+       
+		<ion-col>{{ "note.taskId.label" | translate }}</ion-col>
+	   
+		<ion-col>{{ "note.note.label" | translate }}</ion-col>
+		
+		<ion-col></ion-col>
+	</ion-row>
+	<ion-row *ngFor="let  item of dataSource" (click)="onSelectedHandle(item)">
+		<ion-col>{{ item.id }}</ion-col>
+	   
+		 <ion-col>{{ item.taskId }}</ion-col>
+		
+		 <ion-col>{{ item.note }}</ion-col>
+			
+		  <ion-col class="ion-text-end">
+			<ion-button *ngIf="button.details" [routerLink]="['details/', item.id]" size="small" color="warning"><ion-icon name="eye-outline"></ion-icon></ion-button>
+			<ion-button *ngIf="button.edit" [routerLink]="['edit/', item.id]" size="small" color="secondary" ><ion-icon name="create-outline"></ion-icon></ion-button>
+		    <ion-button *ngIf="button.delete" [routerLink]="['delete/', item.id]" size="small" color="danger" ><ion-icon name="trash-outline"></ion-icon></ion-button>
+		</ion-col>
+	</ion-row>
+  </ion-grid>

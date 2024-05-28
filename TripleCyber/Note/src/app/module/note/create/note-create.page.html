@@ -1,0 +1,11 @@
+
+  <app-header
+	  title="note.singular"
+	  backTo="tabs/notes"
+    ></app-header>
+<ion-content [fullscreen]="true">
+  <app-note-form
+     (onSave)="onSave($event)"
+    [note]="note"
+  ></app-note-form>
+</ion-content>

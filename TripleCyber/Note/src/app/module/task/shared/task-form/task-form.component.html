@@ -1,0 +1,93 @@
+
+<ion-content [fullscreen]="true">
+ <form [formGroup]="form" novalidate>
+      
+		 <!--task-->
+		 <ion-item>
+			<ion-input
+				type="text"
+				[label]="'task.task.label' | translate"
+				labelPlacement="floating"
+				formControlName="task"				
+			  ></ion-input>
+			  <!--[errorText]="getMessage('task') | translate"-->
+		</ion-item>	
+		<ion-text
+			  class="app-error-text"
+			  color="danger"
+			  *ngIf="isInvalid('task')"
+			>
+			  {{ getMessage('task')  | translate }}
+        </ion-text>
+		  
+		 <!--priority-->
+		 <ion-item>
+			<ion-input
+				type="number"
+				[label]="'task.priority.label' | translate"
+				labelPlacement="floating"
+				formControlName="priority"				
+			  ></ion-input>
+			  <!--[errorText]="getMessage('priority') | translate"-->
+		</ion-item>	
+		<ion-text
+			  class="app-error-text"
+			  color="danger"
+			  *ngIf="isInvalid('priority')"
+			>
+			  {{ getMessage('priority')  | translate }}
+        </ion-text>
+		  
+		 <!--solution-->
+		 <ion-item>
+			<ion-input
+				type="text"
+				[label]="'task.solution.label' | translate"
+				labelPlacement="floating"
+				formControlName="solution"				
+			  ></ion-input>
+			  <!--[errorText]="getMessage('solution') | translate"-->
+		</ion-item>	
+		<ion-text
+			  class="app-error-text"
+			  color="danger"
+			  *ngIf="isInvalid('solution')"
+			>
+			  {{ getMessage('solution')  | translate }}
+        </ion-text>
+		  
+		 <!--solved-->
+		 <ion-item>
+			<ion-input
+				type="number"
+				[label]="'task.solved.label' | translate"
+				labelPlacement="floating"
+				formControlName="solved"				
+			  ></ion-input>
+			  <!--[errorText]="getMessage('solved') | translate"-->
+		</ion-item>	
+		<ion-text
+			  class="app-error-text"
+			  color="danger"
+			  *ngIf="isInvalid('solved')"
+			>
+			  {{ getMessage('solved')  | translate }}
+        </ion-text>
+			
+</form>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button
+    *ngIf="!isLoading"
+    size="large"
+    color="primary"
+    [disabled]="isValid"
+    (click)="save()"
+  >
+    <ion-icon name="save-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-button *ngIf="isLoading" size="large" color="primary">
+    <ion-spinner name="crescent" color="dark"></ion-spinner>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>
+

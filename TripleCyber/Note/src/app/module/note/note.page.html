@@ -1,0 +1,39 @@
+
+ <app-header
+	  title="note.title"
+	  placeholder="note.search.placeholder"
+	  [useSearch]="true"
+	  (search)="searchHandle($event)"
+></app-header>
+<ion-content [fullscreen]="true">
+<ion-segment [value]="selectedSegment" (ionChange)="segmentChanged($event)">
+	<ion-segment-button *ngFor="let item of segments" [value]="item.id">
+	  <ion-label>{{ item.name | translate }}</ion-label>
+	</ion-segment-button>
+</ion-segment>
+<app-note-card
+	*ngIf="!isLoading && selectedDisplayMode === displayMode.card"
+	[dataSource]="notes | paginate: filter"
+></app-note-card>
+<app-note-grid
+	  *ngIf="!isLoading && selectedDisplayMode === displayMode.grid"
+	  [dataSource]="notes | paginate: filter"
+></app-note-grid>
+<app-not-found
+	*ngIf="!isLoading && !notes"
+	[notFoundMessage]="'note.not-found.record-text' | translate"
+></app-not-found>
+<app-pagination
+  [filter]="filter"
+  (pageChange)="onPageChange($event)"
+  (sizeChange)="onSizeChange($event)"
+></app-pagination>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+	<ion-fab-button *ngIf="!isLoading" size="large" routerLink="create">
+	  <ion-icon name="add-circle"></ion-icon>
+	</ion-fab-button>
+	<ion-fab-button *ngIf="isLoading" size="large">
+	  <ion-spinner name="crescent"></ion-spinner>
+	</ion-fab-button>
+</ion-fab>
+</ion-content>

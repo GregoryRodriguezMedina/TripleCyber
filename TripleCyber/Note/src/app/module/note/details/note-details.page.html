@@ -1,0 +1,28 @@
+
+  <app-header
+	  title="note.singular"
+	  backTo="tabs/notes"
+    ></app-header>
+<ion-content [fullscreen]="true"> 
+   <app-not-found
+		*ngIf="!isLoading && (!note || !note.id)"
+		[notFoundMessage]="'note.not-found.content-text' | translate"
+		[resetLinkText]="'note.not-found.link-text' | translate"
+		resetLinkRoute="/tabs/notes"
+  ></app-not-found>
+  <app-note-item
+    *ngIf="note && note.id"
+    [dataSource]="note"
+  ></app-note-item>
+  
+  <ion-row>
+	    <ion-col size="12">
+      <ion-segment [value]="selectedSegment" (ionChange)="segmentChanged($event)">
+        <ion-segment-button *ngFor="let item of segments" [value]="item.id">
+          <ion-label>{{ item.name | translate }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+			
+	</ion-row>
+</ion-content>

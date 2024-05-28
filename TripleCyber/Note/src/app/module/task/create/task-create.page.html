@@ -1,0 +1,11 @@
+
+  <app-header
+	  title="task.singular"
+	  backTo="tabs/tasks"
+    ></app-header>
+<ion-content [fullscreen]="true">
+  <app-task-form
+     (onSave)="onSave($event)"
+    [task]="task"
+  ></app-task-form>
+</ion-content>

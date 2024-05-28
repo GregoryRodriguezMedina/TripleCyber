@@ -1,0 +1,27 @@
+
+
+	<ion-row *ngIf="dataSource && dataSource.id">
+		<ion-col size="12" class="line-bottom">
+			<ion-label>{{ "note.id.label" | translate }}:<br />				
+				<ion-text>{{ dataSource.id }}</ion-text>
+			</ion-label>	
+		</ion-col>
+	     
+			 <ion-col size="12" class="line-bottom">
+				<ion-label>{{ "note.note.label" | translate }}:<br />				
+					<ion-text>{{ dataSource.note }}</ion-text>
+				</ion-label>
+			</ion-col>
+			
+	</ion-row>	
+	<ion-row>	
+				
+		 	 <ion-col>
+			  <ion-label>
+				{{ "task.title" | translate }}:
+			  </ion-label>
+			  <app-task-item [dataSource]="dataSource.task">			 
+			  </app-task-item>
+			</ion-col>
+				
+	</ion-row>

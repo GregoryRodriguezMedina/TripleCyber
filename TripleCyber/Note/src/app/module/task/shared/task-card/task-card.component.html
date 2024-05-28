@@ -1,0 +1,20 @@
+
+  <ion-grid>
+<ion-row *ngFor="let item of dataSource" (click)="onSelectedHandle(item)">
+	<ion-col size="6" class="ion-text-right">{{ "task.id.label" | translate }}</ion-col>
+	<ion-col size="6">{{ item.id }}</ion-col>
+   
+	<ion-col size="6" class="ion-text-right">{{ "task.task.label" | translate }}</ion-col>
+	 <ion-col size="6">{{ item.task }}</ion-col>
+	
+	<ion-col size="6" class="ion-text-right">{{ "task.priority.label" | translate }}</ion-col>
+	 <ion-col size="6">{{ item.priority }}</ion-col>
+	
+	<ion-col size="6" class="ion-text-right">{{ "task.solution.label" | translate }}</ion-col>
+	 <ion-col size="6">{{ item.solution }}</ion-col>
+	
+	<ion-col size="6" class="ion-text-right">{{ "task.solved.label" | translate }}</ion-col>
+	 <ion-col size="6">{{ item.solved }}</ion-col>
+		
+	</ion-row>
+  </ion-grid>

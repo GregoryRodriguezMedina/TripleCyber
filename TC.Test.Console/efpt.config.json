@@ -1,0 +1,49 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "RentManagementContext",
+   "ContextNamespace": "Data",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "Entities",
+   "OutputContextPath": "Data",
+   "OutputPath": "Entities",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "TC.Test.Console",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[Task].[Notes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Task].[Tasks]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "desktop-77j23i2\\sqlexpress.RentManagement.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": true,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": true,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": true,
+   "UseSchemaFolders": true,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": true,
+   "UseT4": false
+}

@@ -1,0 +1,19 @@
+
+  <app-header
+	  title="note.singular"
+	  backTo="tabs/notes"
+    ></app-header>
+<ion-content [fullscreen]="true">
+  <app-not-found
+		*ngIf="!isLoading && (!note || !note.id)"		
+		[notFoundMessage]="'note.not-found.content-text' | translate"
+		[resetLinkText]="'note.not-found.link-text' | translate"
+		resetLinkRoute="/tabs/notes"
+  ></app-not-found>
+  <app-note-form
+    *ngIf="note && note.id"
+	 [mode]="'edit'"
+	(onSave)="onSave($event)"
+    [note]="note"
+  ></app-note-form>
+</ion-content>

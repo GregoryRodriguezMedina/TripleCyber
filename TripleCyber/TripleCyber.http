@@ -1,0 +1,6 @@
+@TripleCyber_HostAddress = http://localhost:5137
+
+GET {{TripleCyber_HostAddress}}/
+Accept: application/json
+
+###

@@ -1,0 +1,56 @@
+
+<ion-content [fullscreen]="true">
+ <form [formGroup]="form" novalidate>
+      
+		 <!--taskId-->
+		  <app-searchable-select
+		    [title]="'task.singular' | translate"
+		   [label]="'task.singular' | translate"
+		  [useLocalSearch]="true"
+		  [dataSource]="selectTasks"
+		  formControlName="taskId"
+		>
+		</app-searchable-select>	
+		<ion-text
+			  class="app-error-text"
+			  color="danger"
+			  *ngIf="isInvalid('taskId')"
+			>
+			  {{ ('taskId')  | translate }}
+        </ion-text>
+		  
+		 <!--note-->
+		 <ion-item>
+			<ion-input
+				type="text"
+				[label]="'note.note.label' | translate"
+				labelPlacement="floating"
+				formControlName="note"				
+			  ></ion-input>
+			  <!--[errorText]="getMessage('note') | translate"-->
+		</ion-item>	
+		<ion-text
+			  class="app-error-text"
+			  color="danger"
+			  *ngIf="isInvalid('note')"
+			>
+			  {{ getMessage('note')  | translate }}
+        </ion-text>
+			
+</form>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button
+    *ngIf="!isLoading"
+    size="large"
+    color="primary"
+    [disabled]="isValid"
+    (click)="save()"
+  >
+    <ion-icon name="save-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-button *ngIf="isLoading" size="large" color="primary">
+    <ion-spinner name="crescent" color="dark"></ion-spinner>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>
+

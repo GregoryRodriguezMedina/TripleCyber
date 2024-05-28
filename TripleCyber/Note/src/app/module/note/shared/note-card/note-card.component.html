@@ -1,0 +1,14 @@
+
+  <ion-grid>
+<ion-row *ngFor="let item of dataSource" (click)="onSelectedHandle(item)">
+	<ion-col size="6" class="ion-text-right">{{ "note.id.label" | translate }}</ion-col>
+	<ion-col size="6">{{ item.id }}</ion-col>
+   
+	<ion-col size="6" class="ion-text-right">{{ "note.taskId.label" | translate }}</ion-col>
+	 <ion-col size="6">{{ item.taskId }}</ion-col>
+	
+	<ion-col size="6" class="ion-text-right">{{ "note.note.label" | translate }}</ion-col>
+	 <ion-col size="6">{{ item.note }}</ion-col>
+		
+	</ion-row>
+  </ion-grid>

@@ -1,0 +1,19 @@
+
+  <app-header
+	  title="task.singular"
+	  backTo="tabs/tasks"
+    ></app-header>
+<ion-content [fullscreen]="true">
+  <app-not-found
+		*ngIf="!isLoading && (!task || !task.id)"		
+		[notFoundMessage]="'task.not-found.content-text' | translate"
+		[resetLinkText]="'task.not-found.link-text' | translate"
+		resetLinkRoute="/tabs/tasks"
+  ></app-not-found>
+  <app-task-form
+    *ngIf="task && task.id"
+	 [mode]="'edit'"
+	(onSave)="onSave($event)"
+    [task]="task"
+  ></app-task-form>
+</ion-content>
