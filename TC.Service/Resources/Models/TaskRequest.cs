@@ -1,7 +1,7 @@
 ﻿
 namespace TC.Service.Resources;
 
-public class TaskRequest
+public record TaskRequest
 {
     public string Task { get; set; }
 
