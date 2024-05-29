@@ -36,4 +36,14 @@ internal class TaskRepository(TaskContext taskContext) : ITaskRepository
 
         return await taskContext.SaveChangesAsync() > 0;
     }
+
+    public virtual async Task<bool> DeleteAsync(TaskEntity entity, bool autoSave = true)
+    {
+        taskContext.Tasks.Remove(entity);
+
+        if (!autoSave)
+            return true;
+
+        return await taskContext.SaveChangesAsync() > 0;
+    }
 }

@@ -33,4 +33,14 @@ internal class NoteRepository(TaskContext taskContext) : INoteRepository
 
         return await taskContext.SaveChangesAsync() > 0;
     }
+
+    public virtual async Task<bool> DeleteAsync(NoteEntity entity, bool autoSave = true)
+    {
+        taskContext.Notes.Remove(entity);
+
+        if (!autoSave)
+            return true;
+
+        return await taskContext.SaveChangesAsync() > 0;
+    }
 }

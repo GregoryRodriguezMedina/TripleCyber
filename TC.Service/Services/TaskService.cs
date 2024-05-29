@@ -34,12 +34,23 @@ internal class TaskService : ITaskService
       return  await this.repository.InsertAsync(entity);
     }
 
-    public virtual async Task<bool> UpdateTaskAsync(TaskRequest request)
+    public virtual async Task<bool> UpdateTaskAsync(int key, TaskRequest request)
     {
-        var entity = mapper.Map<TaskEntity>(request);
+        var entity = await this.repository.GetByIdAsync(key);
+
+        if (entity == null) return false;
+
+        mapper.Map(request, entity);
 
         return await this.repository.UpdateAsync(entity);
     }
 
+    public virtual async Task<bool> DeleteTaskAsync(int key)
+    {
+        var entity = await this.repository.GetByIdAsync(key);
 
+        if (entity == null) return false;
+
+        return await this.repository.DeleteAsync(entity);
+    }
 }

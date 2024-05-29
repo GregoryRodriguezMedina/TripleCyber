@@ -21,13 +21,18 @@ namespace TC.Web.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> DeleteTask()
+        {
+            var tasks = await this.taskService.DeleteTaskAsync(1, 100);
+            return View(tasks);
+        }
         public async Task<IActionResult> Tasks()
         {
             var tasks = await this.taskService.GetTasksAsync(1, 100);
             return View(tasks);
         }
        
- public IActionResult CreateEditTask()
+ public IActionResult CreateEditTask(int? id)
         {
             return View();
         }

@@ -8,4 +8,6 @@ public interface ITaskRepository
     Task<IEnumerable<TaskEntity>> GetAsync(int page, int perPege);
     Task<bool> InsertAsync(TaskEntity entity, bool autoSave = true);
     Task<bool> UpdateAsync(TaskEntity entity, bool autoSave = true);
+
+    Task<bool> DeleteAsync(TaskEntity entity, bool autoSave = true);
 }

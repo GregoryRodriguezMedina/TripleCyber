@@ -11,6 +11,7 @@
             <tr>
                 <th>Tarea</th>
                 <th>Prioridad</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +20,11 @@
                 {
                     <tr>
                         <td>@item.Task</td>
-                        <td>@item.Priority</td>                        
+                        <td>@item.Priority</td>  
+                        <td>
+                            <a asp-action="CreateEditTask" asp-route-id="@item.Id" >Modificar</a>
+                            <a asp-action="DeleteTask" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
                     </tr>
                 }
             }

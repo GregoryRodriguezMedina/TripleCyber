@@ -55,7 +55,7 @@ namespace TripleCyber.Controllers
         }
 
         [HttpPut]
-        public virtual async Task<IActionResult> PutAsync([FromBody] NoteRequest request)
+        public virtual async Task<IActionResult> PutAsync([FromRoute]int id, [FromBody] NoteRequest request)
         {
             if (request == null)
             {
@@ -68,11 +68,31 @@ namespace TripleCyber.Controllers
             }
 
 
-            if (!await this.service.UpdateNoteAsync(request))
+            if (!await this.service.UpdateNoteAsync(id, request))
                 return BadRequest(Constante.ErrorDataBase);
 
             return Ok(request);
 
+        }
+
+        [HttpDelete]
+        public virtual async Task<IActionResult> DeleteAsync([FromRoute] int id)
+        {
+            if (id is 0)
+            {
+                return BadRequest(Constante.ErrorParameter);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            if (!await this.service.DeleteNoteAsync(id))
+                return BadRequest(Constante.ErrorDataBase);
+
+            return Ok();
         }
 
     }

@@ -8,4 +8,5 @@ public interface INoteRepository
     Task<IEnumerable<NoteEntity>> GetAsync(int page, int perPege, int taskId);
     Task<bool> InsertAsync(NoteEntity entity, bool autoSave = true);
     Task<bool> UpdateAsync(NoteEntity entity, bool autoSave = true);
+    Task<bool> DeleteAsync(NoteEntity entity, bool autoSave = true);
 }

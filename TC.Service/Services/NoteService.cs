@@ -34,10 +34,24 @@ internal class NoteService : INoteService
       return  await this.repository.InsertAsync(entity);
     }
 
-    public virtual async Task<bool> UpdateNoteAsync(NoteRequest request)
+    public virtual async Task<bool> UpdateNoteAsync(int key, NoteRequest request)
     {
-        var entity = mapper.Map<NoteEntity>(request);
+        
+        var entity = await this.repository.GetByIdAsync(key);
+
+        if (entity == null) return false;
+
+        mapper.Map(request, entity);
 
         return await this.repository.UpdateAsync(entity);
+    }
+
+    public virtual async Task<bool> DeleteNoteAsync(int key)
+    {
+        var entity = await this.repository.GetByIdAsync(key);
+
+        if (entity == null) return false;
+
+        return await this.repository.DeleteAsync(entity);
     }
 }
