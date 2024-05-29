@@ -21,9 +21,10 @@ namespace TC.Web.Controllers
         {
             return View();
         }
- public IActionResult Tasks()
+        public async Task<IActionResult> Tasks()
         {
-            return View();
+            var tasks = await this.taskService.GetTasksAsync(1, 100);
+            return View(tasks);
         }
        
  public IActionResult CreateEditTask()

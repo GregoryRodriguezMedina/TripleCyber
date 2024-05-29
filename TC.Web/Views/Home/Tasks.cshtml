@@ -1,6 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Tareas";
 }
+@model  IEnumerable<TC.Service.Resources.TaskResponse>
+
 <div class="text-center">
     <h1 class="display-4">Tareas</h1>
+    <br/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tarea</th>
+                <th>Prioridad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Task</td>
+                        <td>@item.Priority</td>                        
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
 </div>
