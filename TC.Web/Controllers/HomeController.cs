@@ -31,10 +31,10 @@ namespace TC.Web.Controllers
             var tasks = await this.taskService.GetTasksAsync(1, 100);
             return View(tasks);
         }
-       
- public async Task<IActionResult> CreateEditTask(int? id)
+
+        public async Task<IActionResult> CreateEditTask(int? id)
         {
-            if(id != null)
+            if (id != null)
             {
                 var model = await this.taskService.GetTaskByIdAsync(id.Value);
                 return View(model);
@@ -43,7 +43,7 @@ namespace TC.Web.Controllers
         }
         public async Task<IActionResult> CreateEditTaskFrom(TaskRequest model)
         {
-            if(model.Id == 0)
+            if (model.Id == 0)
                 await this.taskService.CreateTaskAsync(model);
             else await this.taskService.UpdateTaskAsync(model.Id, model);
 
