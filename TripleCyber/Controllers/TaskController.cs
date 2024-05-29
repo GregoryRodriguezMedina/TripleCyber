@@ -37,7 +37,7 @@ namespace TripleCyber.Controllers
         [HttpPost]
         public virtual async Task<IActionResult> PostAsync([FromBody] TaskRequest request)
         {
-            if (request == null)
+            if (request is null)
             {
                 return BadRequest(Constante.ErrorParameter);
             }
@@ -57,7 +57,7 @@ namespace TripleCyber.Controllers
         [HttpPut]
         public virtual async Task<IActionResult> PutAsync([FromBody] TaskRequest request)
         {
-            if (request == null)
+            if (request is null)
             {
                 return BadRequest(Constante.ErrorParameter);
             }

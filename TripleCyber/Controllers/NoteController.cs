@@ -18,10 +18,10 @@ namespace TripleCyber.Controllers
 
 
         [HttpGet()]
-        public async virtual Task<IActionResult> Get(int page, int perPage)
+        public async virtual Task<IActionResult> Get(int page, int perPage, int taskId)
         {
             // return await this.GetHttpResponseAsync(async () =>
-            var pagingResult = await this.service.GetNotesAsync(page, perPage);
+            var pagingResult = await this.service.GetNotesAsync(page, perPage, taskId);
 
             return Ok(pagingResult);
         }

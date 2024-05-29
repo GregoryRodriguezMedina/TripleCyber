@@ -21,9 +21,9 @@ internal class NoteService : INoteService
         return mapper.Map<NoteResponse>(query);
     }
 
-    public async virtual Task<IEnumerable<NoteResponse>> GetNotesAsync(int page, int perPege)
+    public async virtual Task<IEnumerable<NoteResponse>> GetNotesAsync(int page, int perPege, int taskId)
     {
-        var query = await this.repository.GetAsync(page, perPege); 
+        var query = await this.repository.GetAsync(page, perPege, taskId); 
 
         return mapper.Map<IEnumerable<NoteResponse>>(query);
     }

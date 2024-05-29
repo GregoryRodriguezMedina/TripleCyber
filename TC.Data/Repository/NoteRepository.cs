@@ -10,9 +10,9 @@ internal class NoteRepository(TaskContext taskContext) : INoteRepository
         return await taskContext.Notes.FindAsync(key) ?? new NoteEntity();
     }
 
-    public async virtual Task<IEnumerable<NoteEntity>> GetAsync(int page, int perPege)
+    public async virtual Task<IEnumerable<NoteEntity>> GetAsync(int page, int perPege, int taskId)
     {
-        return await taskContext.Notes.ToArrayAsync();
+        return await taskContext.Notes.Where(a=> a.TaskId == taskId).ToArrayAsync();
     }
     public virtual async Task<bool> InsertAsync(NoteEntity entity, bool autoSave = true)
     {
