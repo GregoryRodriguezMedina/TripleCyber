@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Crear o Editar Tarea";
+}
+
+@model TC.Service.Resources.TaskRequest
+
+<div class="text-center">
+    <h1 class="display-4">Crear o editar Tareas</h1>
+</div>
+
+<form asp-action="CreateEditTaskFrom" asp-controller="Home" >
+    <label class="mt-4">Tarea</label>
+    <input class="form-control" type="text" placeholder="0" asp-for="Task" />
+
+    <label class="mt-4">Prioridad</label>
+    <input class="form-control" type="number" placeholder="0" asp-for="Priority" step="1" min="1" max="2" />
+
+    <button class="btn btn-primary mt-4" type="submit">Guardar</button>
+</form>

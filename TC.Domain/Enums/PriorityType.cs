@@ -4,7 +4,7 @@ namespace TC.Domain.Enums;
 
 public enum PriorityType
 {
-    High, 
-    Medium,
-    Low
+    High = 3, 
+    Medium = 2,
+    Low = 1
 }

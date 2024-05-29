@@ -6,12 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Note\**" />
-    <Content Remove="Note\**" />
-    <EmbeddedResource Remove="Note\**" />
-    <None Remove="Note\**" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.6.2" />

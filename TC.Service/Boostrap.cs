@@ -13,6 +13,7 @@ public static class Boostrap
         var conn = configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<TaskContext>(options =>
+        //options.useInMemoryDatabase("VirtualDB")
           options.UseSqlServer(conn//,
                                    //providerOptions => providerOptions.EnableRetryOnFailure()
           ));
