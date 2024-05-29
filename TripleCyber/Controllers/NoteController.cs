@@ -6,6 +6,7 @@ using TripleCyber.Resorces;
 
 namespace TripleCyber.Controllers
 {
+    [Route("api/[controller]")]
     public class NoteController : Controller
     {
         private readonly INoteService service;
