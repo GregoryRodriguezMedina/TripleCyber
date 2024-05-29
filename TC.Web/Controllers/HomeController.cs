@@ -21,10 +21,10 @@ namespace TC.Web.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> DeleteTask()
+        public async Task<IActionResult> DeleteTask(int id)
         {
-            var tasks = await this.taskService.DeleteTaskAsync(1, 100);
-            return View(tasks);
+            var tasks = await this.taskService.DeleteTaskAsync(id);
+            return RedirectToAction("Tasks");
         }
         public async Task<IActionResult> Tasks()
         {
@@ -32,13 +32,21 @@ namespace TC.Web.Controllers
             return View(tasks);
         }
        
- public IActionResult CreateEditTask(int? id)
+ public async Task<IActionResult> CreateEditTask(int? id)
         {
+            if(id != null)
+            {
+                var model = await this.taskService.GetTaskByIdAsync(id.Value);
+                return View(model);
+            }
             return View();
         }
         public async Task<IActionResult> CreateEditTaskFrom(TaskRequest model)
         {
-            var result = await this.taskService.CreateTaskAsync(model);
+            if(model.Id == 0)
+                await this.taskService.CreateTaskAsync(model);
+            else await this.taskService.UpdateTaskAsync(model.Id, model);
+
 
             return RedirectToAction("Tasks");
         }

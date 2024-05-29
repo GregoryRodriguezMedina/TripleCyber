@@ -9,11 +9,12 @@
 </div>
 
 <form asp-action="CreateEditTaskFrom" asp-controller="Home" >
+    <input hidden asp-for="Id" />
     <label class="mt-4">Tarea</label>
-    <input class="form-control" type="text" placeholder="0" asp-for="Task" />
+    <input class="form-control" type="text" placeholder="Digita la tarea" asp-for="Task" />
 
     <label class="mt-4">Prioridad</label>
-    <input class="form-control" type="number" placeholder="0" asp-for="Priority" step="1" min="1" max="2" />
+    <input class="form-control" type="number" placeholder="Digita la Prioridad del 1 al 3" asp-for="Priority" step="1" min="1" max="2" />
 
     <button class="btn btn-primary mt-4" type="submit">Guardar</button>
 </form>
